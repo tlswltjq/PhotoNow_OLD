@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <title>복학생 게시판싸버리기</title>
+
 </head>
-<body>
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<body onload="login.jsp">
+  HI zz
+<%--<a href="hello-servlet">Hello Servlet</a>--%>
 </body>
 </html>
