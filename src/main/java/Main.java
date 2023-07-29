@@ -4,9 +4,7 @@ import DTO.UserDTO;
 public class Main {
     public static void main(String[] args) {
         UserDAO da = new UserDAO();
-        UserDTO dt = new UserDTO();
-        dt = da.getUserById("admin");
-        System.out.println("dd");
+        UserDTO dt = da.getUserById("admin");
         System.out.println(dt);
     }
 }

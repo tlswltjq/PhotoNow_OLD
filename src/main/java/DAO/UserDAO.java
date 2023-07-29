@@ -9,10 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO {
-    //    private static final String DB_URL = "jdbc:mysql://tlswltjq.iptime.org:3306/PhotoNow";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/PhotoNow";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_URL = URLPath.Database.RemoteHost_MySQL.getUrl();
+    private static final String DB_USERNAME = URLPath.Database.RemoteHost_MySQL.getUsername();
+    private static final String DB_PASSWORD = URLPath.Database.RemoteHost_MySQL.getPassword();
+
+    public UserDAO() {
+
+    }
 
     public UserDTO getUserById(String userId) {
         UserDTO user = null;
@@ -38,5 +41,25 @@ public class UserDAO {
         }
 
         return user;
+    }
+    public int login(String userID, String userPW){
+        String SQL =  "SELECT password FROM USER WHERE user_id =?";
+        PreparedStatement pstmt;
+        Connection conn;
+        ResultSet rs;
+        try{
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, userID);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                if (rs.getString(1).equals(userPW)){
+                    return 1;
+                }
+            }
+            return -1;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 1;
     }
 }
