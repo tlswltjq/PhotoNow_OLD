@@ -1,4 +1,4 @@
-package DTO;
+package BEANS;
 
 public class UserDTO {
     private String user_id;
@@ -7,7 +7,7 @@ public class UserDTO {
     private String email;
     private String registration_date;
 
-    public String getUser_id(){
+    public String getUserId(){
         return user_id;
     }
     public String getUsername(){
@@ -22,7 +22,7 @@ public class UserDTO {
     public String getRegistration_date(){
         return registration_date;
     }
-    public void setUser_id(String id){
+    public void setUserId(String id){
         this.user_id = id;
     }
     public void setUsername(String name){
@@ -37,6 +37,14 @@ public class UserDTO {
 
     public void setRegistration_date(String registration_date) {
         this.registration_date = registration_date;
+    }
+    public UserDTO(){
+    }
+    public UserDTO(String user_id, String username, String password, String email) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     @Override
