@@ -71,15 +71,41 @@ public class UserDAO {
 //
 //    }
 //
-//    //u회원정보 갱신          update_user
-//    public UserDTO updateUser(UserDTO dt){
-//
-//    }
-//
-//    //d회원탈퇴             signout
-//    public void signOut(String id, String pwd){
-//
-//    }
+    //u회원정보 갱신          update_user
+    public void updateUser(UserDTO dt){
+        try{
+            conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            pstmt = conn.prepareStatement("UPDATE user SET username=?, password=?, email=? WHERE user_id= ?;");
+            pstmt.setString(1,dt.getUsername());
+            pstmt.setString(2,dt.getPassword());
+            pstmt.setString(3,dt.getEmail());
+            pstmt.setString(4,dt.getUserId());
+            if(pstmt.executeUpdate()==1){
+                System.out.println("Update Sucess");
+            }else{
+                System.out.println(":(");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //d회원탈퇴             signout
+    public void signOut(String id, String password){
+        try{
+            conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            pstmt = conn.prepareStatement("delete from user where user_id=? and password = ?");
+            pstmt.setString(1,id);
+            pstmt.setString(2,password);
+            if(pstmt.executeUpdate()==1){
+                System.out.println("ByeBye" + id);
+            }else{
+                System.out.println(":(");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     //로그인
     public int signIn(String userID, String userPW){

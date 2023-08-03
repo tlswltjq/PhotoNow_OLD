@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <body>
 
   <div id = "login_from" style = "text-align: center;display: flex;justify-content: center; align-items: center; background-color: mistyrose; width : 400px; height: 200px">
-    <form action="login_try.java" method="post">
+    <form action="LoginTry" method="post">
       <div>
         <div style = "float : left;">
           <div>아이디</div>
