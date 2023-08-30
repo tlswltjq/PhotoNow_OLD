@@ -1,24 +1,21 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>복학생 게시판</title>
-
+  <title>🪵in</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet"/>
 </head>
 <body>
 
   <div id = "login_from" style = "text-align: center;display: flex;justify-content: center; align-items: center; background-color: mistyrose; width : 400px; height: 200px">
-    <form action="LoginTry" method="post">
+    <form action="LoginTry.jsp" method="post">
       <div>
         <div style = "float : left;">
-          <div>아이디</div>
-          <div>비밀번호</div>
-        </div>
-        <div style = "float : left;">
-          <div><input type="text" name="id"></div>
-          <div><input type="password" name="pw"></div>
+          <div><input type="text" placeholder="아이디" name="id"></div>
+          <div><input type="password" placeholder="비밀번호" name="password"></div>
         </div>
       </div>
       <div style = "float : right">

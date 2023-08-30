@@ -12,11 +12,20 @@ public class UserDAO {
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
-    private static final String DB_URL = URLPath.Database.RemoteHost_MySQL.getUrl();
-    private static final String DB_USERNAME = URLPath.Database.RemoteHost_MySQL.getUsername();
-    private static final String DB_PASSWORD = URLPath.Database.RemoteHost_MySQL.getPassword();
 
-    public UserDAO() {}
+    private String DB_URL;
+    private String DB_USERNAME;
+    private String DB_PASSWORD;
+
+    public UserDAO() {
+        try{
+            this.DB_URL = URLPath.Database.RemoteHost_MySQL.getUrl();
+            this.DB_USERNAME = URLPath.Database.RemoteHost_MySQL.getUsername();
+            this.DB_PASSWORD = URLPath.Database.RemoteHost_MySQL.getPassword();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public UserDTO getUserById(String userId) {
         UserDTO user = null;
@@ -46,7 +55,7 @@ public class UserDAO {
         return user;
     }//아이디를 이용해 유저정보 가져오기, 오버로딩을 통해 다른 데이터로 유저 정보 검색 해보자.
 
-    //c회원가입             signUp
+    //회원가입             signUp
     public void signUP(UserDTO dt){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
